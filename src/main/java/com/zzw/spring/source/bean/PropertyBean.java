@@ -1,5 +1,6 @@
 package com.zzw.spring.source.bean;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -13,12 +14,8 @@ import javax.inject.Inject;
 public class PropertyBean {
     @Value("${test.name}")
     private String name;
-
-    private final PropertyBeanA propertyBeanA;
-
-    public PropertyBean(PropertyBeanA propertyBeanA) {
-        this.propertyBeanA = propertyBeanA;
-    }
+    @Autowired
+    private PropertyBeanA propertyBeanA;
 
     public String getName() {
         return name;
